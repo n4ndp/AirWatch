@@ -1,26 +1,36 @@
 from flask import Flask
-from .config import Config
-from .database import db
-from .routes import bp
-from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_jwt_extended import JWTManager
+from config import Config
+import time
+
+db = SQLAlchemy()
+jwt = JWTManager()
+cors = CORS(resources={r"/api/*": {"origins": "*"}})
 
 def create_app():
-    # Inicializar la aplicación Flask
     app = Flask(__name__)
+    app.config.from_object(Config)
     
-    CORS(app)
-    
-    app.config.from_object(Config)  # Configurar la base de datos desde config.py
-
-    # Inicializar la base de datos con Flask
     db.init_app(app)
+    jwt.init_app(app)
+    cors.init_app(app)
+    
+    from app.models.User import User
+    from app.models.Account import Account
 
     with app.app_context():
-        # Crear las tablas si no existen
-        db.create_all()
+        time.sleep(5)
+        try:
+            db.create_all()
+            print("Database tables created successfully.")
+        except Exception as e:
+            print(f"Error creating database tables: {e}")
 
-        # Registrar las rutas
-        app.register_blueprint(bp)
+    from app.routes.AuthController import auth_bp
+    from app.routes.UserController import user_bp
+    app.register_blueprint(auth_bp)
+    app.register_blueprint(user_bp)
 
     return app
