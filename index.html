@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zona Visual con Punto</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .zone-image {
+            max-width: 800px;
+            width: 100%;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .dot1 {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: limegreen;
+            border-radius: 50%;
+            top: 144px;
+            left: 177px;
+            border: 2px solid white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+        .dot2 {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: limegreen;
+            border-radius: 50%;
+            top: 129px;
+            left: 412px;
+            border: 2px solid white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+        .dot3 {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: limegreen;
+            border-radius: 50%;
+            top: 265px;
+            left: 514px;
+            border: 2px solid white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+        .dot4 {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: limegreen;
+            border-radius: 50%;
+            top: 376px;
+            left: 153px;
+            border: 2px solid white;
+            box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center-container">
+        <div class="image-container">
+            <img src="plano.png" alt="Zona" class="zone-image">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+            <div class="dot3"></div>
+            <div class="dot4"></div>
+        </div>
+    </div>
+</body>
+
+</html>

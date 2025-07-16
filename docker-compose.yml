@@ -15,6 +15,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    command: 
+      --log-error-verbosity=1
+      --general-log=0
 
   adminer:
     image: adminer

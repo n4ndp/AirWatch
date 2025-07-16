@@ -4,6 +4,7 @@ from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from config import Config
 import time
+from app.utils.SeedData import seed_data
 
 db = SQLAlchemy()
 jwt = JWTManager()
@@ -30,9 +31,10 @@ def create_app():
         time.sleep(5)
         try:
             db.create_all()
-            print("Database tables created successfully.")
+            time.sleep(2)
+            seed_data()
         except Exception as e:
-            print(f"Error creating database tables: {e}")
+            print(f"Error: {e}")
 
     from app.routes.AuthController import auth_bp
     from app.routes.UserController import user_bp

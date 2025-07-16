@@ -12,5 +12,5 @@ class Alert(db.Model):
     reading_id = db.Column(db.Integer, db.ForeignKey("readings.id"), nullable=False)
     zone_id = db.Column(db.Integer, db.ForeignKey("zones.id"), nullable=False)
 
-    reading = db.relationship("Reading", back_populates="alerts", lazy="joined")
+    reading = db.relationship("Reading", back_populates="alert", lazy="joined")
     zone = db.relationship("Zone", back_populates="alerts", lazy="joined")
