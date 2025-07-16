@@ -19,6 +19,12 @@ def create_app():
     
     from app.models.User import User
     from app.models.Account import Account
+    from app.models.Command import Command
+    from app.models.Fan import Fan
+    from app.models.Alert import Alert
+    from app.models.Reading import Reading
+    from app.models.Sensor import Sensor
+    from app.models.Zone import Zone
 
     with app.app_context():
         time.sleep(5)
