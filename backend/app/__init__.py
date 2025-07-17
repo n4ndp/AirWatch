@@ -39,8 +39,10 @@ def create_app():
     from app.routes.AuthController import auth_bp
     from app.routes.UserController import user_bp
     from app.routes.ZoneController import zone_bp
+    from app.routes.MonitoringController import monitoring_bp
     app.register_blueprint(auth_bp)
     app.register_blueprint(user_bp)
     app.register_blueprint(zone_bp)
+    app.register_blueprint(monitoring_bp)
 
     return app
