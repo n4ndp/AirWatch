@@ -65,11 +65,6 @@ class UserService:
         db.session.delete(user)
         db.session.commit()
 
-        return {
-            "status": "success",
-            "message": f"User '{username}' deleted successfully"
-        }
-
     @staticmethod
     def create_user(data):
         username = data.get("username")

@@ -10,7 +10,7 @@ class Fan(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     serial_number = db.Column(db.String(100), nullable=False)
-    status = db.Column(db.String(20), nullable=False, default=FanStatus.OFF.value)
+    status = db.Column(db.Enum(FanStatus), nullable=False, default=FanStatus.OFF)
     purchase_date = db.Column(db.Date, nullable=False, default=datetime.now(timezone.utc))
 
     zone = db.relationship("Zone", back_populates="fan", uselist=False)

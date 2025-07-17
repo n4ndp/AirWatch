@@ -10,9 +10,9 @@ class Sensor(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     serial_number = db.Column(db.String(100), nullable=False)
-    status = db.Column(db.String(20), nullable=False, default=SensorStatus.INACTIVE.value)
+    status = db.Column(db.Enum(SensorStatus), nullable=False, default=SensorStatus.INACTIVE)
     purchase_date = db.Column(db.Date, nullable=False, default=datetime.now(timezone.utc))
 
-    zone = db.relationship("Zone", back_populates="sensor", uselist=False)
+    zone = db.relationship("Zone", back_populates="sensor", uselist=False, cascade="all, delete")
 
     readings = db.relationship("Reading", back_populates="sensor", cascade="all, delete-orphan")

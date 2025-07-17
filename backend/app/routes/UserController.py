@@ -56,5 +56,5 @@ def update_user(username):
 @jwt_required()
 @roles_required(UserRole.ADMIN)
 def delete_user(username):
-    result = UserService.delete_user(username)
-    return jsonify(result), 200
+    UserService.delete_user(username)
+    return jsonify({"message": f"User '{username}' deleted successfully"}), 200
