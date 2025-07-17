@@ -1,0 +1,18 @@
+.register-page {
+    background-color: var(--background);
+}
+
+.register-container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+}
+
+h1 {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 2rem;
+}
